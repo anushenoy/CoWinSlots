@@ -109,11 +109,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func doStuffForPincode(pin:String){
         self.PincodeLbl.text = pin
+        self.view.showLoader()
         viewModel.getdata(pincode: pin){
             //dostuff
             print(self.viewModel.centers)
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.view.hideLoader()
+                if self.viewModel.centers.isEmpty{
+                    //show empty state
+                }else{
+                    self.tableView.reloadData()
+                }
+                
             }
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84716627263DC5B200E013F3 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84716626263DC5B200E013F3 /* Loader.swift */; };
 		848A46C2263D736C002484C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A46C1263D736C002484C8 /* AppDelegate.swift */; };
 		848A46C4263D736D002484C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A46C3263D736D002484C8 /* SceneDelegate.swift */; };
 		848A46C6263D736D002484C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A46C5263D736D002484C8 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84716626263DC5B200E013F3 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		848A46BE263D736C002484C8 /* COWIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = COWIN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848A46C1263D736C002484C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		848A46C3263D736D002484C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				848A46C1263D736C002484C8 /* AppDelegate.swift */,
 				848A46C3263D736D002484C8 /* SceneDelegate.swift */,
+				84716626263DC5B200E013F3 /* Loader.swift */,
 				848A46C5263D736D002484C8 /* ViewController.swift */,
 				848A46F9263D743D002484C8 /* ViewModel.swift */,
 				848A46FE263D9593002484C8 /* SessionTableViewCell.swift */,
@@ -272,6 +275,7 @@
 				848A46C6263D736D002484C8 /* ViewController.swift in Sources */,
 				848A46C2263D736C002484C8 /* AppDelegate.swift in Sources */,
 				848A46F5263D7404002484C8 /* Objects.swift in Sources */,
+				84716627263DC5B200E013F3 /* Loader.swift in Sources */,
 				848A46C4263D736D002484C8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
