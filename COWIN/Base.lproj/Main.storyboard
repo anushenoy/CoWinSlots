@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t31-uV-HaT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -123,10 +124,19 @@
                                     <constraint firstItem="uqa-EZ-eeb" firstAttribute="top" secondItem="ZVQ-3V-dvf" secondAttribute="top" id="vCv-aN-vSx"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No configured  sesssions found for the given pincode in the near future. Please try Again later" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bky-ye-aav">
+                                <rect key="frame" x="20" y="412" width="374" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Bky-ye-aav" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0m8-mP-g8I"/>
+                            <constraint firstItem="Bky-ye-aav" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2wU-kC-rg4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bky-ye-aav" secondAttribute="trailing" constant="20" id="DGY-UG-ess"/>
                             <constraint firstItem="ZVQ-3V-dvf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="EZv-W1-lS6"/>
                             <constraint firstAttribute="bottom" secondItem="3Qc-Vl-tOM" secondAttribute="bottom" id="G9t-Ds-jOJ"/>
                             <constraint firstItem="oke-Gl-LU6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ld0-xc-EBG"/>
@@ -141,6 +151,7 @@
                     <navigationItem key="navigationItem" id="cY8-RQ-DGM"/>
                     <connections>
                         <outlet property="PincodeLbl" destination="lfh-P2-TPO" id="C4X-k3-nZA"/>
+                        <outlet property="emptyStateLbl" destination="Bky-ye-aav" id="JBx-rL-Tce"/>
                         <outlet property="tableView" destination="3Qc-Vl-tOM" id="zHc-Ki-LMx"/>
                     </connections>
                 </viewController>

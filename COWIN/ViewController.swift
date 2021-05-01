@@ -11,6 +11,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var PincodeLbl: UILabel!
     
+    @IBOutlet weak var emptyStateLbl: UILabel!
     let viewModel = ViewModel()
     
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         if let pin = UserDefaults.standard.string(forKey: "pincode"){
             self.doStuffForPincode(pin: pin)
         }else{
@@ -115,12 +117,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print(self.viewModel.centers)
             DispatchQueue.main.async {
                 self.view.hideLoader()
-                if self.viewModel.centers.isEmpty{
-                    //show empty state
-                }else{
-                    self.tableView.reloadData()
-                }
                 
+                self.emptyStateLbl.isHidden   = !self.viewModel.centers.isEmpty
+           
+                    self.tableView.reloadData()
+               
             }
         }
     }
