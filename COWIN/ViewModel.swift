@@ -11,6 +11,9 @@ class ViewModel{
     var centers:[Center] = []
     func getdata(pincode:String, offset:Int = 0, onComplete:@escaping ()->Void){
         //"https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=400068&date=20-05-2021"
+        if offset == 0{
+            centers = []
+        }
         guard let offsetDate = Calendar.current.date(
           byAdding: .day,
           value: offset,
