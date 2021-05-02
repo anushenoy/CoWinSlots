@@ -455,6 +455,7 @@ extension SearchByDistrictViewController: UITableViewDelegate, UITableViewDataSo
                 vaccineLabel.topAnchor.constraint(equalTo: minimumAgeLabel.bottomAnchor, constant: 8).isActive = true
                 vaccineLabel.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 8).isActive = true
                 vaccineLabel.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -48).isActive = true
+                vaccineLabel.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: -8).isActive = true
             }
         }
         
