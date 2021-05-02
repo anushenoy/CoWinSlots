@@ -48,3 +48,34 @@ struct Session: Codable {
         case vaccine, slots
     }
 }
+
+// MARK: - States
+struct StatesData: Codable {
+    let states: [State]?
+}
+
+struct State: Codable {
+    let stateId: Int?
+    let stateName: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case stateId = "state_id"
+        case stateName = "state_name"
+    }
+    
+}
+
+// MARK: - Districts
+struct DistrictData: Codable {
+    let districts: [District]?
+}
+
+struct District: Codable {
+    let districtId: Int?
+    let districtName: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case districtId = "district_id"
+        case districtName = "district_name"
+    }
+}
