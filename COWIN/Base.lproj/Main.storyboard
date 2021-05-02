@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Qc-Vl-tOM">
-                                <rect key="frame" x="0.0" y="156" width="414" height="740"/>
+                                <rect key="frame" x="0.0" y="204" width="414" height="692"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="93" id="QI2-ey-7gt" customClass="SessionTableViewCell" customModule="COWIN" customModuleProvider="target">
@@ -79,6 +79,25 @@
                                     <constraint firstAttribute="height" constant="60" id="Nkk-Bf-alX"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2t-GE-YEf" userLabel="SearchByDistrict">
+                                <rect key="frame" x="0.0" y="156" width="414" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3l-qg-Whw">
+                                        <rect key="frame" x="261" y="4" width="137" height="32"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <state key="normal" title="Search by district"/>
+                                        <connections>
+                                            <action selector="searchByDistrictClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LCg-az-6m1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="w3l-qg-Whw" firstAttribute="centerY" secondItem="M2t-GE-YEf" secondAttribute="centerY" id="dbu-ZQ-RZt"/>
+                                    <constraint firstAttribute="height" constant="40" id="hMV-VB-pyd"/>
+                                    <constraint firstAttribute="trailing" secondItem="w3l-qg-Whw" secondAttribute="trailing" constant="16" id="pxJ-XA-Hnd"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVQ-3V-dvf">
                                 <rect key="frame" x="0.0" y="108" width="414" height="40"/>
                                 <subviews>
@@ -141,9 +160,12 @@
                             <constraint firstAttribute="bottom" secondItem="3Qc-Vl-tOM" secondAttribute="bottom" id="G9t-Ds-jOJ"/>
                             <constraint firstItem="oke-Gl-LU6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ld0-xc-EBG"/>
                             <constraint firstItem="3Qc-Vl-tOM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Oco-iV-pNr"/>
-                            <constraint firstItem="3Qc-Vl-tOM" firstAttribute="top" secondItem="ZVQ-3V-dvf" secondAttribute="bottom" constant="8" id="WLJ-L0-7Iu"/>
+                            <constraint firstItem="3Qc-Vl-tOM" firstAttribute="top" secondItem="M2t-GE-YEf" secondAttribute="bottom" constant="8" id="WLJ-L0-7Iu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Qc-Vl-tOM" secondAttribute="trailing" id="aom-gt-lgg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="M2t-GE-YEf" secondAttribute="trailing" id="coc-Tj-R8Y"/>
                             <constraint firstItem="ZVQ-3V-dvf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="g3v-Ba-aJk"/>
+                            <constraint firstItem="M2t-GE-YEf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lUs-sa-mc9"/>
+                            <constraint firstItem="M2t-GE-YEf" firstAttribute="top" secondItem="ZVQ-3V-dvf" secondAttribute="bottom" constant="8" id="o4d-dC-ana"/>
                             <constraint firstItem="ZVQ-3V-dvf" firstAttribute="top" secondItem="oke-Gl-LU6" secondAttribute="bottom" constant="4" id="twP-jE-7dD"/>
                             <constraint firstItem="oke-Gl-LU6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vtk-e4-8Ph"/>
                         </constraints>
