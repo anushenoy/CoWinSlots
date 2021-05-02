@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.tableFooterView = UIView()
@@ -76,6 +77,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         showPinPopup()
         
     }
+    
+    @IBAction func searchByDistrictClicked(_ sender: Any) {
+        self.navigationController?.pushViewController(SearchByDistrictViewController(), animated: true)
+    }
+    
     func showPinPopup(){
         var alertController:UIAlertController?
                 alertController = UIAlertController(title: "Cowin Status",
