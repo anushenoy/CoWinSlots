@@ -15,12 +15,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let viewModel = ViewModel()
     
     @IBOutlet weak var tableView: UITableView!
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        refreshControl.attributedTitle = NSAttributedString(string: "Refreshing data")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
         if let pin = UserDefaults.standard.string(forKey: "pincode"){
             self.doStuffForPincode(pin: pin)
         }else{
@@ -117,6 +121,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print(self.viewModel.centers)
             DispatchQueue.main.async {
                 self.view.hideLoader()
+                
+                self.emptyStateLbl.isHidden   = !self.viewModel.centers.isEmpty
+           
+                    self.tableView.reloadData()
+               
+            }
+        }
+    }
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        viewModel.getdata(pincode: self.PincodeLbl.text ?? ""){
+            //dostuff
+            print(self.viewModel.centers)
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
                 
                 self.emptyStateLbl.isHidden   = !self.viewModel.centers.isEmpty
            
