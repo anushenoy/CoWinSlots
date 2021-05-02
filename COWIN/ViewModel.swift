@@ -55,4 +55,18 @@ class ViewModel{
             }
         }.resume()
     }
+    
+    func isAvailable(pincode:String, onComplete:@escaping (Bool)->Void){
+        
+        self.getdata(pincode: pincode) {
+            for center in self.centers{
+                for session in center.sessions ?? []{
+                    if session.availableCapacity ?? 0 > 0{
+                        onComplete(true)
+                    }
+                }
+            }
+            onComplete(false)
+        }
+    }
 }
