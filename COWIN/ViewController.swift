@@ -33,19 +33,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        headerView.backgroundColor = .white
-            let label = UILabel()
-            label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?{
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        headerView.backgroundColor = .black
+        let label = UILabel()
+        label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
         label.text = viewModel.centers[section].name
-            label.font = .systemFont(ofSize: 16)
-            label.textColor = .black
-            
-            headerView.addSubview(label)
-            
-            return headerView
-        }
+        label.font = .boldSystemFont(ofSize: 16)
+        label.textColor = .white
+        
+        headerView.addSubview(label)
+        
+        return headerView
+    }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
@@ -60,6 +60,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SessionTableViewCell
+        guard viewModel.centers.count > indexPath.section else{
+            return cell
+        }
+        guard viewModel.centers[indexPath.section].sessions?.count ?? 0 > indexPath.row else{
+            return cell
+        }
         let item = viewModel.centers[indexPath.section].sessions?[indexPath.row]
         var str = item?.date
         if let vaxType = item?.vaccine, !vaxType.isEmpty{
