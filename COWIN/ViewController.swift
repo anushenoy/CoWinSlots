@@ -37,7 +37,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
         headerView.backgroundColor = .black
         let label = UILabel()
-        label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
+        label.frame = CGRect.init(x: 16, y: 4, width: headerView.frame.width-32, height: headerView.frame.height-8)
         label.text = viewModel.centers[section].name
         label.font = .boldSystemFont(ofSize: 16)
         label.textColor = .white

@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if let pin = UserDefaults.standard.string(forKey: "pincode"){
                     ViewModel().isAvailable(pincode: pin, onComplete: { flag in
                         guard flag else {
+                            completionHandler(UIBackgroundFetchResult.failed)
                             return
                         }
                         let content = UNMutableNotificationContent()
@@ -58,8 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             trigger: UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
                         )
                         UNUserNotificationCenter.current().add(request)
+                        completionHandler(UIBackgroundFetchResult.newData)
                     })
                 }
+            }else{
+                completionHandler(UIBackgroundFetchResult.failed)
             }
         }
     }
