@@ -7,6 +7,14 @@
 
 import UIKit
 
+ var cowinSession:URLSession {
+    let config = URLSessionConfiguration.default
+            config.httpAdditionalHeaders = ["User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:88.0) Gecko/20100101 Firefox/88.0"]
+            let session = URLSession(configuration: config)
+    return session
+}
+
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var PincodeLbl: UILabel!
@@ -26,6 +34,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         refreshControl.attributedTitle = NSAttributedString(string: "Refreshing data")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl)
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if let pin = UserDefaults.standard.string(forKey: "pincode"){
             self.doStuffForPincode(pin: pin)
         }else{
@@ -143,6 +155,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     @objc func refresh(_ sender: AnyObject) {
        // Code to refresh table view
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
         viewModel.getdata(pincode: self.PincodeLbl.text ?? ""){
             //dostuff
             print(self.viewModel.centers)

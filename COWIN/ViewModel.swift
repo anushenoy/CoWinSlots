@@ -26,7 +26,7 @@ class ViewModel{
         
         let url = URL(string: "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=\(pincode)&date=\(dateStr)")!
         
-        URLSession.shared.dataTask(with: url) {(_data, response, error) in
+        cowinSession.dataTask(with: url) {(_data, response, error) in
             if let data = _data, let obj = try? JSONDecoder().decode(CowinData.self, from: data),let newCenters = obj.centers, !newCenters.isEmpty{
                 for newCenter in newCenters{
                     if let index = self.centers.firstIndex(where: { (item) -> Bool in

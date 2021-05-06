@@ -22,7 +22,7 @@ class SearchByDistrictViewModel {
     
     func getStatesList(completion: @escaping (StatesData?, SearchByDistrictAPIErrors?) -> Void) {
         let url: URL = URL(string: "\(baseUrl)\(stateListUrlPath)")!
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        cowinSession.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 completion(nil, .apiError(error: error))
                 return
@@ -38,7 +38,7 @@ class SearchByDistrictViewModel {
     
     func getDistrictForState(stateId: Int, completion: @escaping (DistrictData?, SearchByDistrictAPIErrors?) -> Void) {
         let url: URL = URL(string: "\(baseUrl)\(districtsUrlPath)\(stateId)")!
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        cowinSession.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 completion(nil, .apiError(error: error))
                 return
@@ -54,7 +54,7 @@ class SearchByDistrictViewModel {
     
     func fetchSlotsInfo(forDate date: String, forDistrictId district: Int, completion: @escaping (CowinData?, SearchByDistrictAPIErrors?) -> Void) {
         let url: URL = URL(string: "\(baseUrl)\(slotsInfoUrlPath)?district_id=\(district)&date=\(date)")!
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        cowinSession.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 completion(nil, .apiError(error: error))
                 return
